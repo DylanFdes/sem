@@ -162,10 +162,11 @@ public class App
             String strSelect =
                     "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
                             + "FROM employees, salaries, titles "
-                            + "AND employees.emp_no = titles.emp_no"
-                            + "AND salaries.to_date = '9999-01-01'"
-                            + "AND titles.to_date = '9999-01-01'"
-                            + "AND titles.title = '<title>'"
+                            + "WHERE employees.emp_no = salaries.emp_no "
+                            + "AND employees.emp_no = titles.emp_no "
+                            + "AND salaries.to_date = '9999-01-01' "
+                            + "AND titles.to_date = '9999-01-01' "
+                            + "AND titles.title = 'Engineer' "
                             + "ORDER BY employees.emp_no ASC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
